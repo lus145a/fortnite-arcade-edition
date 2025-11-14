@@ -70,10 +70,10 @@ function createLoadingScreen () {
     }
 }
 function destroyLoadingScreen () {
+    sprites.destroy(anotherSprite, effects.none, 100)
     sprites.destroy(FORTNITE_START_SCREEN, effects.none, 100)
     sprites.destroy(textSprite, effects.none, 100)
     sprites.destroy(statusbar, effects.none, 100)
-    sprites.destroy(anotherSprite, effects.none, 100)
 }
 function createStartMenu () {
     scene2 = sprites.create(img`
@@ -174,7 +174,7 @@ let textSprite: TextSprite = null
 let statusbar: StatusBarSprite = null
 let FORTNITE_START_SCREEN: Sprite = null
 let anotherSprite: Sprite = null
-destroyLoadingScreen()
 createLoadingScreen()
+destroyLoadingScreen()
 color.startFade(color.Black, color.originalPalette, 1000)
 createStartMenu()
