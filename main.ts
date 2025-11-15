@@ -9,6 +9,7 @@ namespace StatusBarKind {
 // 
 // minigun
 function createLoadingScreen () {
+    tiles.setCurrentTilemap(tilemap`level2`)
     anotherSprite = sprites.create(img`
         11111111111111111111111111111111111111111111
         1ffffffffffffffffffffffffffffffffffffffffff1
@@ -58,7 +59,7 @@ function createLoadingScreen () {
     statusbar = statusbars.create(40, 4, StatusBarKind.load)
     statusbar.setColor(1, 15)
     statusbar.value = 0
-    statusbar.max = 501
+    statusbar.max = 500
     statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
     textSprite = textsprite.create("Loading", 15, 1)
     statusbar.setPosition(80, 85)
@@ -167,8 +168,28 @@ function createStartMenu () {
         fffffffffffffffffffffffffffffffffccfffffffffffffcc66cecc6666666666666666666666666666666666666666cbeecffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         fffffffffffffcfffffffffffffffffffcffffffffffffcccffcecccccc6cc6666666666666666666666666666bcc66cceecfffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `, SpriteKind.Player)
-    scaling.scaleByPercent(scene2, 40, ScaleDirection.Vertically, ScaleAnchor.Middle)
+    scaling.scaleByPercent(scene2, 50, ScaleDirection.Vertically, ScaleAnchor.Middle)
+    cursor = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . f f f . . . . . . . . . 
+        . . . . f 1 f f . . . . . . . . 
+        . . . . f 1 1 f f . . . . . . . 
+        . . . . f 1 1 1 f f . . . . . . 
+        . . . . f 1 1 1 1 f f . . . . . 
+        . . . . f 1 1 1 1 1 f f . . . . 
+        . . . . f 1 1 1 1 1 1 f f . . . 
+        . . . . f 1 1 1 1 1 1 1 f . . . 
+        . . . . f 1 1 1 1 f f f f . . . 
+        . . . . f 1 1 1 1 f f . . . . . 
+        . . . . f 1 f f 1 1 f . . . . . 
+        . . . . f f f . f 1 f . . . . . 
+        . . . . . . . . f 1 f . . . . . 
+        . . . . . . . . f f f . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    controller.moveSprite(cursor)
 }
+let cursor: Sprite = null
 let scene2: Sprite = null
 let textSprite: TextSprite = null
 let statusbar: StatusBarSprite = null
@@ -176,5 +197,5 @@ let FORTNITE_START_SCREEN: Sprite = null
 let anotherSprite: Sprite = null
 createLoadingScreen()
 destroyLoadingScreen()
-color.startFade(color.Black, color.originalPalette, 1000)
+color.startFade(color.Black, color.originalPalette)
 createStartMenu()

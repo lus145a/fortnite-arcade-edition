@@ -9,7 +9,10 @@
         "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1",
         "Color Fading": "github:jwunderl/pxt-color#v0.2.3",
         "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
-        "sprite-scaling": "*"
+        "sprite-scaling": "*",
+        "animation": "*",
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2",
+        "Extra Effects": "github:alexszeto/extra-effects#v3.1.0"
     },
     "files": [
         "main.blocks",
